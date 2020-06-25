@@ -1,0 +1,15 @@
+### global variables
+@baseUrl = http://localhost:8000
+@contentType = application/json
+
+@loginPath = /api/login
+
+### user login 
+POST {{baseUrl}}{{loginPath}}
+Content-Type: {{contentType}}
+
+{
+    "SeatNo": "6246",
+    "SSN": "30003270300115"
+}
+

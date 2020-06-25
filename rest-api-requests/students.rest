@@ -1,0 +1,12 @@
+### global variables
+@baseUrl = http://localhost:8000
+@contentType = application/json
+
+@studentPath = /api/students
+
+### get all
+GET {{baseUrl}}{{studentPath}}
+
+### get by id
+GET {{baseUrl}}{{studentPath}}/5ef452d88331ba4655e78b92
+
