@@ -9,7 +9,7 @@ POST {{baseUrl}}{{loginPath}}
 Content-Type: {{contentType}}
 
 {
-    "SeatNo": "6246",
-    "SSN": "30003270300115"
+    "seatNo": "5692",
+    "ssn": "30009220300112"
 }
 
