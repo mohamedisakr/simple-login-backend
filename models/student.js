@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const uniqueValidator = require("mongoose-unique-validator");
 
 const url = process.env.MONGODB_URI;
 
@@ -23,6 +24,7 @@ const schemaDefinition = {
   fullName: { type: String, required: true },
 };
 
+studentSchema.plugin(uniqueValidator);
 const studentSchema = new mongoose.Schema(schemaDefinition);
 
 studentSchema.set("toJSON", {
