@@ -13,4 +13,11 @@ router.get("/:id", async (req, res) => {
   res.status(200).send(students);
 });
 
+router.post("/", async (req, res) => {
+  const { seatNo, ssn, fullName } = req.body;
+  const student = { seatNo, ssn, fullName };
+  const savedStudent = await studentServices.Add(student);
+  res.status(200).send(savedStudent);
+});
+
 module.exports = router;

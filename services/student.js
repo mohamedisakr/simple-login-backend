@@ -10,4 +10,10 @@ const getById = async (id) => {
   return student;
 };
 
-module.exports = { getAll, getById };
+const Add = async (newStudent) => {
+  const student = new Student(newStudent);
+  const savedStudent = await student.save();
+  return savedStudent;
+};
+
+module.exports = { getAll, getById, Add };

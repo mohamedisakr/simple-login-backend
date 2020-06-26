@@ -5,18 +5,18 @@ const url = process.env.MONGODB_URI;
 
 console.log("connecting to", url);
 
-mongoose
-  .connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then((result) => {
-    console.log("connected to MongoDB");
-  })
-  .catch((error) => {
-    console.log("error connecting to MongoDB:", error.message);
-  });
+// mongoose
+//   .connect(url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useFindAndModify: false,
+//   })
+//   .then((result) => {
+//     console.log("connected to MongoDB");
+//   })
+//   .catch((error) => {
+//     console.log("error connecting to MongoDB:", error.message);
+//   });
 
 const schemaDefinition = {
   seatNo: { type: String, minlength: 3, required: true },
@@ -24,7 +24,6 @@ const schemaDefinition = {
   fullName: { type: String, required: true },
 };
 
-studentSchema.plugin(uniqueValidator);
 const studentSchema = new mongoose.Schema(schemaDefinition);
 
 studentSchema.set("toJSON", {
@@ -34,5 +33,7 @@ studentSchema.set("toJSON", {
     delete returnedObject.__v;
   },
 });
+
+studentSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model("Student", studentSchema);

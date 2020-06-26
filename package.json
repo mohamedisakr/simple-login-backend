@@ -1,7 +1,7 @@
 {
   "name": "simple-login-backend",
   "version": "1.0.0",
-  "description": "1. Exercise 4.11 Blog list tests, step4 >> test fails 2. Exercise 4.22 bloglist expansion step 10 >> not completed",
+  "description": "simple login backend",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",

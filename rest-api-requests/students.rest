@@ -10,3 +10,12 @@ GET {{baseUrl}}{{studentPath}}
 ### get by id
 GET {{baseUrl}}{{studentPath}}/5ef452d88331ba4655e78b92
 
+### add new student
+POST  {{baseUrl}}{{studentPath}}
+Content-Type: {{contentType}}
+
+{
+    "seatNo": "0000",
+    "ssn": "00000000000000",
+    "fullName": "test student"
+}
