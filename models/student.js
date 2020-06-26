@@ -18,9 +18,9 @@ mongoose
   });
 
 const schemaDefinition = {
-  seatNo: String,
-  ssn: String,
-  fullName: String,
+  seatNo: { type: String, minlength: 3, required: true },
+  ssn: { type: String, minlength: 14, required: true },
+  fullName: { type: String, required: true },
 };
 
 const studentSchema = new mongoose.Schema(schemaDefinition);
