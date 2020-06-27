@@ -8,7 +8,7 @@
 GET {{baseUrl}}{{studentPath}}
 
 ### get by id
-GET {{baseUrl}}{{studentPath}}/5ef452d88331ba4655e78b92
+GET {{baseUrl}}{{studentPath}}/5ef6eeeb1c87aa15942f1c8d
 
 ### add new student
 POST  {{baseUrl}}{{studentPath}}
@@ -18,4 +18,17 @@ Content-Type: {{contentType}}
     "seatNo": "0000",
     "ssn": "00000000000000",
     "fullName": "test student"
+}
+
+### delete 
+DELETE  {{baseUrl}}{{studentPath}}/5ef5e2381769a72218fe477c
+
+### update
+PUT   {{baseUrl}}{{studentPath}}/5ef6eeeb1c87aa15942f1c8d
+Content-Type: {{contentType}}
+
+{
+    "seatNo": "0000",
+    "ssn": "01230000000000",
+    "fullName": "test student updated"
 }

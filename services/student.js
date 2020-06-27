@@ -16,4 +16,21 @@ const Add = async (newStudent) => {
   return savedStudent;
 };
 
-module.exports = { getAll, getById, Add };
+const update = async (id, studentToUpdate) => {
+  const student = await Student.findById(id);
+  if (!student) return null;
+  student.set({
+    seatNo: studentToUpdate.seatNo || student.seatNo,
+    ssn: studentToUpdate.ssn || student.ssn,
+    fullName: studentToUpdate.fullName || student.fullName,
+  });
+  const savedStudent = await student.save();
+  return savedStudent;
+};
+
+const remove = async (id) => {
+  const student = await Student.findByIdAndDelete(id);
+  return student;
+};
+
+module.exports = { getAll, getById, Add, update, remove };

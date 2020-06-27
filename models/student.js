@@ -1,23 +1,6 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 
-const url = process.env.MONGODB_URI;
-
-console.log("connecting to", url);
-
-// mongoose
-//   .connect(url, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false,
-//   })
-//   .then((result) => {
-//     console.log("connected to MongoDB");
-//   })
-//   .catch((error) => {
-//     console.log("error connecting to MongoDB:", error.message);
-//   });
-
 const schemaDefinition = {
   seatNo: { type: String, minlength: 3, required: true },
   ssn: { type: String, minlength: 14, required: true },
