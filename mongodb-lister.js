@@ -36,9 +36,8 @@ table += `<th>key</th><th>type</th>`;
 
 data.fields.forEach((item) => {
   table += `<tr>`;
-  if (item.name !== "__v") {
-    table += 
-        `<td>${item.name}</td>
+  if (item.name !== "__v" && item.name !== "_id") {
+    table += `<td>${item.name}</td>
          <td>${item.types[0].name}</td>`;
   }
   table += `</tr>`;
