@@ -1,6 +1,7 @@
 const getOne = (model) => async (req, res) => {
+  const id = req.params.id;
   try {
-    const doc = await model.findOne({ id: req.params.id }).lean().exec();
+    const doc = await model.findOne({ id: id }).lean().exec();
 
     if (!doc) {
       return res.status(400).end();
@@ -16,7 +17,6 @@ const getOne = (model) => async (req, res) => {
 const getMany = (model) => async (req, res) => {
   try {
     const docs = await model.find({}).lean().exec();
-
     res.status(200).json({ data: docs });
   } catch (e) {
     console.error(e);
@@ -26,7 +26,7 @@ const getMany = (model) => async (req, res) => {
 
 const createOne = (model) => async (req, res) => {
   try {
-    const doc = await model.create({ ...req.body });
+    const doc = await model.create(req.body);
     res.status(201).json({ data: doc });
   } catch (e) {
     console.error(e);
@@ -35,15 +35,10 @@ const createOne = (model) => async (req, res) => {
 };
 
 const updateOne = (model) => async (req, res) => {
+  const id = req.params.id;
   try {
     const updatedDoc = await model
-      .findOneAndUpdate(
-        {
-          id: req.params.id,
-        },
-        req.body,
-        { new: true }
-      )
+      .findOneAndUpdate({ id: id }, req.body, { new: true })
       .lean()
       .exec();
 
@@ -83,4 +78,11 @@ const crudControllers = (model) => ({
   createOne: createOne(model),
 });
 
-module.exports = { crudControllers };
+module.exports = {
+  getOne,
+  getMany,
+  createOne,
+  updateOne,
+  removeOne,
+  crudControllers,
+};
